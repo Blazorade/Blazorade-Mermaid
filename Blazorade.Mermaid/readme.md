@@ -6,7 +6,7 @@ You just add the `MermaidDiagram` component to your application, set its `Code` 
 
 ## Getting Started
 
-Please refer to the Blazorade Mermaid wiki for information on how to get started with the library.
+Please refer to the [Blazorade Mermaid wiki](https://github.com/Blazorade/Blazorade-Mermaid/wiki) for information on how to get started with the library.
 > Please note that this library is still in beta phase, and the wiki is still heavily under construction. However, using Blazorade is pretty simple.
 
 - Add a reference to `Blazorade.Mermaid`
