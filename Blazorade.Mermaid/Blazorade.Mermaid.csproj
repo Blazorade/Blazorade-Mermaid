@@ -19,6 +19,7 @@
     <PackageTags>Blazor;Mermaid</PackageTags>
     <PackageReleaseNotes>For details about this release, check out the release notes on Nuget at https://www.nuget.org/packages/Blazorade.Mermaid.</PackageReleaseNotes>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
