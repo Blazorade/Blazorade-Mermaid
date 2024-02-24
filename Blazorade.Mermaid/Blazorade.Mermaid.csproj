@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Title>Blazorade Mermaid</Title>
+    <Version>1.0.0-beta.1</Version>
+    <Authors>Mika Berglund</Authors>
+    <Company>Blazorade</Company>
+    <Product>Blazorade Mermaid</Product>
+    <Description>A library for displaying Mermaid diagrams in your Blazor application with.</Description>
+    <Copyright>Copyright (c) Mika Berglund 2024</Copyright>
+    <PackageProjectUrl>https://github.com/Blazorade/Blazorade-Mermaid</PackageProjectUrl>
+    <PackageIcon>Blazorade-Icon-128.png</PackageIcon>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Blazorade/Blazorade-Mermaid</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Blazor;Mermaid</PackageTags>
+    <PackageReleaseNotes>For details about this release, check out the release notes on Nuget at https://www.nuget.org/packages/Blazorade.Mermaid.</PackageReleaseNotes>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Blazorade-Icon-128.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazorade.Core" Version="3.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

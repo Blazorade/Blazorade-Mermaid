@@ -3,12 +3,34 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazorade.Mermaid", "Blazorade.Mermaid\Blazorade.Mermaid.csproj", "{2039DFE1-CA19-4F40-9A32-4BD07A0498AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{492DE9A8-B31D-4B40-999A-74D9F011C795}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MermaidServerApp", "MermaidServerApp\MermaidServerApp.csproj", "{88E27090-174C-4DC4-998C-0769BE36C375}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2039DFE1-CA19-4F40-9A32-4BD07A0498AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2039DFE1-CA19-4F40-9A32-4BD07A0498AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2039DFE1-CA19-4F40-9A32-4BD07A0498AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2039DFE1-CA19-4F40-9A32-4BD07A0498AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88E27090-174C-4DC4-998C-0769BE36C375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88E27090-174C-4DC4-998C-0769BE36C375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88E27090-174C-4DC4-998C-0769BE36C375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88E27090-174C-4DC4-998C-0769BE36C375}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{88E27090-174C-4DC4-998C-0769BE36C375} = {492DE9A8-B31D-4B40-999A-74D9F011C795}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4028A52F-0BED-46ED-9292-FC02CC7AA810}
 	EndGlobalSection
 EndGlobal
