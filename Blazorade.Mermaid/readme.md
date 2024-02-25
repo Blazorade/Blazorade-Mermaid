@@ -18,6 +18,10 @@ Blazorade Mermaid will take care of the rest for you.
 
 ## Version Highlights
 
+### v1.0.0-beta.2
+
+- Added support for updating the diagram after it has been rendered the first time.
+
 ### v1.0.0-beta.1
 
 The first published prerelease of the library.
