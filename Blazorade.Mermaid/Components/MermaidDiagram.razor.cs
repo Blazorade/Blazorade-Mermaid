@@ -2,6 +2,8 @@
 using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,8 +19,6 @@ namespace Blazorade.Mermaid.Components
     /// </remarks>
     partial class MermaidDiagram
     {
-        private const string MermaidClass = "mermaid";
-
         /// <summary>
         /// The Mermaid code to render as a diagram.
         /// </summary>
@@ -52,6 +52,14 @@ destroy B
 B ->> A: I agree
 ";
 
+        /// <summary>
+        /// The ID for the diagram.
+        /// </summary>
+        /// <remarks>
+        /// This will be automatically set on the component, if not set in your code.
+        /// </remarks>
+        [Parameter]
+        public string? Id { get; set; }
 
         [Inject]
         private IJSRuntime JSRuntime { get; set; } = null!;
@@ -59,17 +67,15 @@ B ->> A: I agree
         /// <inheritdoc/>
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
-            if(firstRender)
-            {
-                var jsModule = await this.GetBlazoradeMermaidModuleAsync();
-                await jsModule.InvokeVoidAsync("run", $".{MermaidClass}");
-            }
+            var jsModule = await this.GetBlazoradeMermaidModuleAsync();
+            await jsModule.InvokeVoidAsync("run", this.Id, this.Code);
         }
 
         /// <inheritdoc/>
         protected override void OnParametersSet()
         {
-            this.AddClasses(MermaidClass);
+            this.AddClasses("mermaid");
+            this.SetIdIfEmpty();
             base.OnParametersSet();
         }
 
@@ -77,6 +83,18 @@ B ->> A: I agree
         private async ValueTask<IJSObjectReference> GetBlazoradeMermaidModuleAsync()
         {
             return _BlazoradeMermaidModule ??= await this.JSRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/Blazorade.Mermaid/js/blazoradeMermaid.js");
+        }
+
+        private void SetIdIfEmpty(string? id = null)
+        {
+            if(!this.Attributes.ContainsKey("id"))
+            {
+                // Assuming that the first 8 chars is unique enough in the context of the page the component is shown on.
+                // Unnecessarily long ID values may cause problems with certain frameworks.
+                id = this.Id ?? id ?? Guid.NewGuid().ToString().Replace("-", "").Substring(0, 8);
+                this.Id = id;
+                this.Attributes.Add("id", id);
+            }
         }
     }
 }
