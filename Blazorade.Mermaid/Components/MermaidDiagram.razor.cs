@@ -20,13 +20,13 @@ namespace Blazorade.Mermaid.Components
     partial class MermaidDiagram
     {
         /// <summary>
-        /// The Mermaid code to render as a diagram.
+        /// The Mermaid definition to render as a diagram.
         /// </summary>
         /// <remarks>
         /// Read more about Mermaid and diagrams on https://mermaid.js.org/intro/.
         /// </remarks>
         [Parameter]
-        public string Code { get; set; } = @"
+        public string Definition { get; set; } = @"
 sequenceDiagram
 
 participant A as Alice
@@ -68,7 +68,7 @@ B ->> A: I agree
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
             var jsModule = await this.GetBlazoradeMermaidModuleAsync();
-            await jsModule.InvokeVoidAsync("run", this.Id, this.Code);
+            await jsModule.InvokeVoidAsync("run", this.Id, this.Definition);
         }
 
         /// <inheritdoc/>
