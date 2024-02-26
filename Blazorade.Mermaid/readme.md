@@ -12,7 +12,7 @@ Please refer to the [Blazorade Mermaid wiki](https://github.com/Blazorade/Blazor
 - Add a reference to `Blazorade.Mermaid`
 - Add a `using` statement to the following namespace: `Blazorade.Mermaid.Components`
 - Add the `<MermaidDiagram />` to the page or component where you want to display a diagram.
-- Set the `Code` property of the `MermaidDiagram` component to the Mermaid Code you want to render as a diagram.
+- Set the `Definition` property of the `MermaidDiagram` component to the Mermaid Code you want to render as a diagram.
 
 Blazorade Mermaid will take care of the rest for you.
 
