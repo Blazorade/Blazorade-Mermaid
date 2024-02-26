@@ -91,7 +91,7 @@ B ->> A: I agree
             {
                 // Assuming that the first 8 chars is unique enough in the context of the page the component is shown on.
                 // Unnecessarily long ID values may cause problems with certain frameworks.
-                id = this.Id ?? id ?? Guid.NewGuid().ToString().Replace("-", "").Substring(0, 8);
+                id = this.Id ?? id ?? $"m{Guid.NewGuid().ToString().Replace("-", "").Substring(0, 12)}";
                 this.Id = id;
                 this.Attributes.Add("id", id);
             }
