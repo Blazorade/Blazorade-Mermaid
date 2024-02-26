@@ -1,0 +1,85 @@
+﻿
+<div>
+    <button @onclick="async () => await this.ChangeDefinitionAsync(dg0)">Flowchart</button>
+    | <button @onclick="async () => await this.ChangeDefinitionAsync(dg1)">Sequence Diagram</button>
+    | <button @onclick="async () => await this.ChangeDefinitionAsync(dg2)">XY Chart</button>
+    | <button @onclick="async () => await this.ChangeDefinitionAsync(dg3)">Mindmap</button>
+</div>
+
+@code {
+    [Parameter]
+    public EventCallback<string> DefinitionChanged { get; set; }
+
+    private async ValueTask ChangeDefinitionAsync(string code)
+    {
+        await this.DefinitionChanged.InvokeAsync(code);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+        {
+            await this.ChangeDefinitionAsync(dg0);
+        }
+    }
+
+    const string dg0 = @"
+flowchart TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
+    one --> two
+    three --> two
+    two --> c2
+";
+
+    const string dg1 = @"
+sequenceDiagram
+    autonumber
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts!
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!
+";
+
+    const string dg2 = @"
+xychart-beta
+title ""Sales Revenue""
+x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
+y-axis ""Revenue (in $)"" 4000 --> 11000
+bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+";
+
+    const string dg3 = @"
+mindmap
+  root((mindmap))
+    Origins
+      Long history
+      ::icon(fa fa-book)
+      Popularisation
+        British popular psychology author Tony Buzan
+    Research
+      On effectiveness<br/>and features
+      On Automatic creation
+        Uses
+            Creative techniques
+            Strategic planning
+            Argument mapping
+    Tools
+      Pen and paper
+      Mermaid
+";
+
+}

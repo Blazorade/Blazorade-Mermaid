@@ -9,7 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{492D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MermaidServerApp", "MermaidServerApp\MermaidServerApp.csproj", "{88E27090-174C-4DC4-998C-0769BE36C375}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MermaidWasmApp", "MermaidWasmApp\MermaidWasmApp.csproj", "{EF60F3E5-93E0-4EEE-B7C5-C0D7B2F1AF34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MermaidWasmApp", "MermaidWasmApp\MermaidWasmApp.csproj", "{EF60F3E5-93E0-4EEE-B7C5-C0D7B2F1AF34}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MermaidSampleLib", "MermaidSampleLib\MermaidSampleLib.csproj", "{D947CE98-B041-48C8-B227-E2C24674BEC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{EF60F3E5-93E0-4EEE-B7C5-C0D7B2F1AF34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF60F3E5-93E0-4EEE-B7C5-C0D7B2F1AF34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF60F3E5-93E0-4EEE-B7C5-C0D7B2F1AF34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D947CE98-B041-48C8-B227-E2C24674BEC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D947CE98-B041-48C8-B227-E2C24674BEC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D947CE98-B041-48C8-B227-E2C24674BEC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D947CE98-B041-48C8-B227-E2C24674BEC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{88E27090-174C-4DC4-998C-0769BE36C375} = {492DE9A8-B31D-4B40-999A-74D9F011C795}
 		{EF60F3E5-93E0-4EEE-B7C5-C0D7B2F1AF34} = {492DE9A8-B31D-4B40-999A-74D9F011C795}
+		{D947CE98-B041-48C8-B227-E2C24674BEC8} = {492DE9A8-B31D-4B40-999A-74D9F011C795}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4028A52F-0BED-46ED-9292-FC02CC7AA810}

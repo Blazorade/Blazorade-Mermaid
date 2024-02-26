@@ -1,50 +1,5 @@
 ﻿@page "/"
 
-<h1>A Mermaid Diagram</h1>
+<h1>Working With Mermaid Diagrams</h1>
 
-<button @onclick="() => this.mermaidCode = dg1">Sequence Diagram</button>
-| <button @onclick="() => this.mermaidCode = dg2">XY Chart</button>
-| <button @onclick="() => this.mermaidCode = dg3">Mindmap</button>
-
-<MermaidDiagram Code="@this.mermaidCode" />
-
-
-@code {
-    string mermaidCode = dg1;
-    const string dg1 = @"
-sequenceDiagram
-Alice ->>+ John: Hello John, how are you?
-Alice ->>+ John: John, can you hear me?
-John -->>- Alice: Hi Alice, I can hear you!
-John -->>- Alice: I feel great!
-";
-
-    const string dg2 = @"
-xychart-beta
-title ""Sales Revenue""
-x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
-y-axis ""Revenue (in $)"" 4000 --> 11000
-bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
-line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
-";
-
-    const string dg3 = @"
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-";
-}
+<EditDiagrams />

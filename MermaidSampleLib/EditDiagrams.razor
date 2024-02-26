@@ -1,0 +1,14 @@
+﻿<h3>Edit Diagrams</h3>
+
+<SampleDiagramsProvider DefinitionChanged="(s) => this.definition = s"></SampleDiagramsProvider>
+
+<InputTextArea @bind-Value="this.definition"
+               @oninput="(e) => this.definition = e.Value?.ToString() ?? string.Empty"
+    rows="20" cols="80" />
+
+<h4>Preview</h4>
+<MermaidDiagram Definition="@this.definition" />
+
+@code {
+    string definition = string.Empty;
+}

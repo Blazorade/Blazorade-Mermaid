@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Blazorade.Mermaid\Blazorade.Mermaid.csproj" />
+    <ProjectReference Include="..\MermaidSampleLib\MermaidSampleLib.csproj" />
   </ItemGroup>
 
   <ItemGroup>

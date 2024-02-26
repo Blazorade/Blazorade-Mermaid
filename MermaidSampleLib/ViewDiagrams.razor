@@ -1,0 +1,12 @@
+﻿<h3>View Diagrams</h3>
+
+<SampleDiagramsProvider DefinitionChanged="(diag) => this.definition = diag" />
+
+<MermaidDiagram Definition="@this.definition" />
+
+<h4>The Raw Code</h4>
+<pre>@this.definition</pre>
+
+@code {
+    string definition = "";
+}
