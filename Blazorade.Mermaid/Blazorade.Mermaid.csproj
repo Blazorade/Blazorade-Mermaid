@@ -11,7 +11,7 @@
     <Product>Blazorade Mermaid</Product>
     <Description>A library for displaying Mermaid diagrams in your Blazor application with.</Description>
     <Copyright>Copyright (c) Mika Berglund 2024</Copyright>
-    <PackageProjectUrl>https://github.com/Blazorade/Blazorade-Mermaid</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Blazorade/Blazorade-Mermaid/wiki</PackageProjectUrl>
     <PackageIcon>Blazorade-Icon-128.png</PackageIcon>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Blazorade/Blazorade-Mermaid</RepositoryUrl>
