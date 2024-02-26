@@ -18,6 +18,10 @@ Blazorade Mermaid will take care of the rest for you.
 
 ## Version Highlights
 
+## v1.0.0-beta.3
+
+- Prefixed the generated ID for the `MermaidDiagram` component with the character `m` to ensure that it never starts with a digit. `id` attributes for HTML elements **MUST** start with a letter, not a digit.
+
 ### v1.0.0-beta.2
 
 - Added support for updating the diagram after it has been rendered the first time.
