@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazorade.Mermaid", "Blazorade.Mermaid\Blazorade.Mermaid.csproj", "{2039DFE1-CA19-4F40-9A32-4BD07A0498AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazorade.Mermaid", "Blazorade.Mermaid\Blazorade.Mermaid.csproj", "{2039DFE1-CA19-4F40-9A32-4BD07A0498AE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{492DE9A8-B31D-4B40-999A-74D9F011C795}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MermaidServerApp", "MermaidServerApp\MermaidServerApp.csproj", "{88E27090-174C-4DC4-998C-0769BE36C375}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MermaidServerApp", "MermaidServerApp\MermaidServerApp.csproj", "{88E27090-174C-4DC4-998C-0769BE36C375}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MermaidWasmApp", "MermaidWasmApp\MermaidWasmApp.csproj", "{EF60F3E5-93E0-4EEE-B7C5-C0D7B2F1AF34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +25,17 @@ Global
 		{88E27090-174C-4DC4-998C-0769BE36C375}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88E27090-174C-4DC4-998C-0769BE36C375}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88E27090-174C-4DC4-998C-0769BE36C375}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF60F3E5-93E0-4EEE-B7C5-C0D7B2F1AF34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF60F3E5-93E0-4EEE-B7C5-C0D7B2F1AF34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF60F3E5-93E0-4EEE-B7C5-C0D7B2F1AF34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF60F3E5-93E0-4EEE-B7C5-C0D7B2F1AF34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{88E27090-174C-4DC4-998C-0769BE36C375} = {492DE9A8-B31D-4B40-999A-74D9F011C795}
+		{EF60F3E5-93E0-4EEE-B7C5-C0D7B2F1AF34} = {492DE9A8-B31D-4B40-999A-74D9F011C795}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4028A52F-0BED-46ED-9292-FC02CC7AA810}
