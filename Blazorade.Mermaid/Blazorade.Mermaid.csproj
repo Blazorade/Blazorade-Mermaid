@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <Title>Blazorade Mermaid</Title>
-    <Version>1.0.0-beta.3</Version>
+    <Version>1.0.0</Version>
     <Authors>Mika Berglund</Authors>
     <Company>Blazorade</Company>
     <Product>Blazorade Mermaid</Product>
@@ -16,7 +16,7 @@
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Blazorade/Blazorade-Mermaid</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Blazor;Mermaid</PackageTags>
+    <PackageTags>Blazor;Mermaid;Diagram;Chart</PackageTags>
     <PackageReleaseNotes>For details about this release, check out the release notes on Nuget at https://www.nuget.org/packages/Blazorade.Mermaid.</PackageReleaseNotes>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

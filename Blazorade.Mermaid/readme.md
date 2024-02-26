@@ -18,6 +18,11 @@ Blazorade Mermaid will take care of the rest for you.
 
 ## Version Highlights
 
+## v1.0.0
+
+The first stable version of Blazorade Mermaid.
+- Changed the `Code` parameter on the `MermaidDiagram` component to `Definition` to better match the terminology on the [Mermaid website](https://mermaid.js.org/intro/).
+
 ## v1.0.0-beta.3
 
 - Prefixed the generated ID for the `MermaidDiagram` component with the character `m` to ensure that it never starts with a digit. `id` attributes for HTML elements **MUST** start with a letter, not a digit.
