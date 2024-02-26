@@ -1,0 +1,38 @@
+﻿<h3>Multiple Diagrams</h3>
+
+<h4>Flowchart</h4>
+<MermaidDiagram Definition="@this.Def1" />
+
+<h4>Sequence Diagram</h4>
+<MermaidDiagram Definition="@this.Def2" />
+
+@code {
+    string Def1 = @"
+flowchart TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
+    one --> two
+    three --> two
+    two --> c2
+";
+    string Def2 = @"
+sequenceDiagram
+    autonumber
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts!
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!
+";
+}
