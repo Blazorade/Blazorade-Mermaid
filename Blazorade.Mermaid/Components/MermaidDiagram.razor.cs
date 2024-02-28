@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Blazorade.Mermaid.Model;
+using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Blazorade.Mermaid.Components
     /// For more information on Mermaid and what kind of diagrams you can display with it, please
     /// refer to https://mermaid.js.org/
     /// </remarks>
-    partial class MermaidDiagram
+    partial class MermaidDiagram : IAsyncDisposable
     {
         /// <summary>
         /// The Mermaid definition to render as a diagram.
@@ -61,14 +62,27 @@ B ->> A: I agree
         [Parameter]
         public string? Id { get; set; }
 
+        /// <inheritdoc/>
+        public async ValueTask DisposeAsync()
+        {
+        }
+
+        /// <summary>
+        /// The callback method that will be called by Mermaid JS when a diagram element is clicked.
+        /// </summary>
+        [JSInvokable]
+        public async Task OnElementClickCallbackAsync(ElementClickCallbackArgs args)
+        {
+
+        }
+
         [Inject]
         private IJSRuntime JSRuntime { get; set; } = null!;
 
         /// <inheritdoc/>
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
-            var jsModule = await this.GetBlazoradeMermaidModuleAsync();
-            await jsModule.InvokeVoidAsync("run", this.Id, this.Definition);
+            await this.UpdateDiagramAsync();
         }
 
         /// <inheritdoc/>
@@ -96,5 +110,19 @@ B ->> A: I agree
                 this.Attributes.Add("id", id);
             }
         }
+
+        private async ValueTask RegisterClickCallbacksAsync()
+        {
+
+        }
+
+        private async ValueTask UpdateDiagramAsync()
+        {
+            var jsModule = await this.GetBlazoradeMermaidModuleAsync();
+            await jsModule.InvokeVoidAsync("run", this.Id, this.Definition);
+
+            await this.RegisterClickCallbacksAsync();
+        }
+
     }
 }
