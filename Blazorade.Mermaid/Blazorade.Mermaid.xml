@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Blazorade.Mermaid</name>
+    </assembly>
+    <members>
+        <member name="T:Blazorade.Mermaid.Components.MermaidDiagram">
+            <summary>
+            Use this component to display Mermaid diagrams in your application.
+            </summary>
+            <remarks>
+            For more information on Mermaid and what kind of diagrams you can display with it, please
+            refer to https://mermaid.js.org/
+            </remarks>
+        </member>
+        <member name="P:Blazorade.Mermaid.Components.MermaidDiagram.Definition">
+            <summary>
+            The Mermaid definition to render as a diagram.
+            </summary>
+            <remarks>
+            Read more about Mermaid and diagrams on https://mermaid.js.org/intro/.
+            </remarks>
+        </member>
+        <member name="P:Blazorade.Mermaid.Components.MermaidDiagram.Id">
+            <summary>
+            The ID for the diagram.
+            </summary>
+            <remarks>
+            This will be automatically set on the component, if not set in your code.
+            </remarks>
+        </member>
+        <member name="M:Blazorade.Mermaid.Components.MermaidDiagram.DisposeAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:Blazorade.Mermaid.Components.MermaidDiagram.OnElementClickCallbackAsync(Blazorade.Mermaid.Model.ElementClickCallbackArgs)">
+            <summary>
+            The callback method that will be called by Mermaid JS when a diagram element is clicked.
+            </summary>
+        </member>
+        <member name="M:Blazorade.Mermaid.Components.MermaidDiagram.OnAfterRenderAsync(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Blazorade.Mermaid.Components.MermaidDiagram.OnParametersSet">
+            <inheritdoc/>
+        </member>
+        <member name="T:Blazorade.Mermaid.Model.ElementClickCallbackArgs">
+            <summary>
+            Callback arguments for when a diagram element is clicked.
+            </summary>
+        </member>
+        <member name="P:Blazorade.Mermaid.Model.ElementClickCallbackArgs.Id">
+            <summary>
+            The Mermaid ID of the element that was clicked.
+            </summary>
+        </member>
+    </members>
+</doc>
