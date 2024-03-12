@@ -6,6 +6,9 @@
 <h4>Sequence Diagram</h4>
 <MermaidDiagram Definition="@this.Def2" />
 
+<h4>Default Diagram</h4>
+<MermaidDiagram></MermaidDiagram>
+
 @code {
     string Def1 = @"
 flowchart TB
@@ -34,5 +37,12 @@ sequenceDiagram
     John-->>Alice: Great!
     John->>Bob: How about you?
     Bob-->>John: Jolly good!
+";
+    string Def3 = @"
+pie title Pets adopted by volunteers
+    ""Dogs"" : 386
+    ""Cats"" : 85
+    ""Rats"" : 15
+
 ";
 }

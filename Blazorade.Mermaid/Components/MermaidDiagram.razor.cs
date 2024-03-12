@@ -28,29 +28,14 @@ namespace Blazorade.Mermaid.Components
         /// </remarks>
         [Parameter]
         public string Definition { get; set; } = @"
-sequenceDiagram
+---
+title: Diagram definition not specified
+---
+flowchart TB
 
-participant A as Alice
-participant B as Bob
+s1[Click here to read more on the Blazorade-Mermaid Wiki]
 
-A ->> B: Hello Bob, how are you ?
-B ->> A: Fine, thank you. And you?
-
-create participant C as Carl
-
-A ->> C: Hi Carl!
-
-create actor D as Donald
-
-C ->> D: Hi!
-
-destroy C
-
-A -x C: We are too many
-
-destroy B
-
-B ->> A: I agree
+click s1 ""https://github.com/Blazorade/Blazorade-Mermaid/wiki"" ""Open Blazorade-Mermaid Wiki"" _blank
 ";
 
         /// <summary>
@@ -88,6 +73,11 @@ B ->> A: I agree
         /// <inheritdoc/>
         protected override void OnParametersSet()
         {
+            if(null != this.ChildContent)
+            {
+                this.Definition = string.Empty;
+            }
+
             this.AddClasses("mermaid");
             this.SetIdIfEmpty();
             base.OnParametersSet();
