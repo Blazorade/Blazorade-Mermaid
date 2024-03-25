@@ -4,6 +4,21 @@
         <name>Blazorade.Mermaid</name>
     </assembly>
     <members>
+        <member name="T:Blazorade.Mermaid.Components.MermaidComponentBase">
+            <summary>
+            A base class for components with Mermaid functionality.
+            </summary>
+        </member>
+        <member name="P:Blazorade.Mermaid.Components.MermaidComponentBase.JSRuntime">
+            <summary>
+            Injected JavaScript Runtime implementation.
+            </summary>
+        </member>
+        <member name="M:Blazorade.Mermaid.Components.MermaidComponentBase.GetBlazoradeMermaidModuleAsync">
+            <summary>
+            Returns a reference to the Blazorade Mermaid JavaScript file.
+            </summary>
+        </member>
         <member name="T:Blazorade.Mermaid.Components.MermaidDiagram">
             <summary>
             Use this component to display Mermaid diagrams in your application.
@@ -29,9 +44,6 @@
             This will be automatically set on the component, if not set in your code.
             </remarks>
         </member>
-        <member name="M:Blazorade.Mermaid.Components.MermaidDiagram.DisposeAsync">
-            <inheritdoc/>
-        </member>
         <member name="M:Blazorade.Mermaid.Components.MermaidDiagram.OnElementClickCallbackAsync(Blazorade.Mermaid.Model.ElementClickCallbackArgs)">
             <summary>
             The callback method that will be called by Mermaid JS when a diagram element is clicked.
@@ -41,6 +53,27 @@
             <inheritdoc/>
         </member>
         <member name="M:Blazorade.Mermaid.Components.MermaidDiagram.OnParametersSet">
+            <inheritdoc/>
+        </member>
+        <member name="T:Blazorade.Mermaid.Components.MermaidRender">
+            <summary>
+            A component that renders any element that matches a selector into a Mermaid diagram.
+            </summary>
+            <remarks>
+            This component can be useful if you for instance have HTML content coming from a data source
+            where the content contains HTML content in addition to the Mermaid definitions. Then this
+            component would render that content into diagrams.
+            </remarks>
+        </member>
+        <member name="P:Blazorade.Mermaid.Components.MermaidRender.Selector">
+            <summary>
+            The selector for the elements containing Mermaid definitions to render into diagrams.
+            </summary>
+            <remarks>
+            The default value is <c>.mermaid</c>.
+            </remarks>
+        </member>
+        <member name="M:Blazorade.Mermaid.Components.MermaidRender.OnAfterRenderAsync(System.Boolean)">
             <inheritdoc/>
         </member>
         <member name="T:Blazorade.Mermaid.Model.ElementClickCallbackArgs">

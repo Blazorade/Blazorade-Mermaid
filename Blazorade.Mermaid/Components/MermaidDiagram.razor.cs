@@ -18,7 +18,7 @@ namespace Blazorade.Mermaid.Components
     /// For more information on Mermaid and what kind of diagrams you can display with it, please
     /// refer to https://mermaid.js.org/
     /// </remarks>
-    partial class MermaidDiagram : IAsyncDisposable
+    partial class MermaidDiagram
     {
         /// <summary>
         /// The Mermaid definition to render as a diagram.
@@ -47,22 +47,16 @@ click s1 ""https://github.com/Blazorade/Blazorade-Mermaid/wiki"" ""Open Blazorad
         [Parameter]
         public string? Id { get; set; }
 
-        /// <inheritdoc/>
-        public async ValueTask DisposeAsync()
-        {
-        }
-
         /// <summary>
         /// The callback method that will be called by Mermaid JS when a diagram element is clicked.
         /// </summary>
         [JSInvokable]
-        public async Task OnElementClickCallbackAsync(ElementClickCallbackArgs args)
+        public Task OnElementClickCallbackAsync(ElementClickCallbackArgs args)
         {
-
+            // TODO: Still lacks implementations.
+            return Task.CompletedTask;
         }
 
-        [Inject]
-        private IJSRuntime JSRuntime { get; set; } = null!;
 
         /// <inheritdoc/>
         protected async override Task OnAfterRenderAsync(bool firstRender)
@@ -83,12 +77,6 @@ click s1 ""https://github.com/Blazorade/Blazorade-Mermaid/wiki"" ""Open Blazorad
             base.OnParametersSet();
         }
 
-        private IJSObjectReference _BlazoradeMermaidModule = null!;
-        private async ValueTask<IJSObjectReference> GetBlazoradeMermaidModuleAsync()
-        {
-            return _BlazoradeMermaidModule ??= await this.JSRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/Blazorade.Mermaid/js/blazoradeMermaid.js");
-        }
-
         private void SetIdIfEmpty(string? id = null)
         {
             if(!this.Attributes.ContainsKey("id"))
@@ -101,9 +89,10 @@ click s1 ""https://github.com/Blazorade/Blazorade-Mermaid/wiki"" ""Open Blazorad
             }
         }
 
-        private async ValueTask RegisterClickCallbacksAsync()
+        private ValueTask RegisterClickCallbacksAsync()
         {
-
+            // TODO: Still lacks implementations.
+            return ValueTask.CompletedTask;
         }
 
         private async ValueTask UpdateDiagramAsync()

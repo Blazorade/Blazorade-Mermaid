@@ -11,4 +11,12 @@
     <ProjectReference Include="..\MermaidSampleLib\MermaidSampleLib.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\RenderOnly.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\RenderOnly.razor" />
+  </ItemGroup>
+
 </Project>
