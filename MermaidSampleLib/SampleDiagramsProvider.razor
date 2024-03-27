@@ -1,6 +1,7 @@
 ﻿
 <div>
     <button @onclick="async () => await this.ChangeDefinitionAsync(dg0)">Flowchart</button>
+    | <button @onclick="async () => await this.ChangeDefinitionAsync(dg0_themed)">Themed Flowchart</button>
     | <button @onclick="async () => await this.ChangeDefinitionAsync(dg1)">Sequence Diagram</button>
     | <button @onclick="async () => await this.ChangeDefinitionAsync(dg2)">XY Chart</button>
     | <button @onclick="async () => await this.ChangeDefinitionAsync(dg3)">Mindmap</button>
@@ -39,6 +40,20 @@ flowchart TB
     three --> two
     two --> c2
 ";
+
+    const string dg0_themed = @"
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#33c481',
+      'primaryTextColor': '#242424',
+      'secondaryColor': '#ffffff',
+      'fontSize': '16px'
+    }
+  }
+}%%
+" + dg0;
 
     const string dg1 = @"
 sequenceDiagram
