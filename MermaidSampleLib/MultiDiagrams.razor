@@ -28,6 +28,17 @@ flowchart TB
 ";
     string Def2 = @"
 sequenceDiagram
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#33c481',
+      'primaryTextColor': '#242424',
+      'secondaryColor': '#fff',
+      'fontSize': '16px'
+    }
+  }
+}%%
     autonumber
     Alice->>John: Hello John, how are you?
     loop Healthcheck

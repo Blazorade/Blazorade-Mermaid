@@ -1,0 +1,33 @@
+﻿@page "/single-render-only"
+
+<h1>Single Render-Only Diagram</h1>
+
+<pre class="mermaid">
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#33c481',
+      'primaryTextColor': '#242424',
+      'secondaryColor': '#fff',
+      'fontSize': '16px'
+    }
+  }
+}%%
+flowchart TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
+    one --> two
+    three --> two
+    two --> c2
+</pre>
+
+<MermaidRender Selector=".mermaid" />
