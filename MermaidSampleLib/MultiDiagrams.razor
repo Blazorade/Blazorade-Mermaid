@@ -9,6 +9,9 @@
 <h4>Sequence Diagram</h4>
 <MermaidDiagram Definition="@this.Def2" />
 
+<h4>Default Diagram</h4>
+<MermaidDiagram></MermaidDiagram>
+
 @code {
     string Def1 = @"
 flowchart TB
@@ -58,6 +61,17 @@ flowchart TB
 
     string Def2 = @"
 sequenceDiagram
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#33c481',
+      'primaryTextColor': '#242424',
+      'secondaryColor': '#fff',
+      'fontSize': '16px'
+    }
+  }
+}%%
     autonumber
     Alice->>John: Hello John, how are you?
     loop Healthcheck
@@ -67,5 +81,12 @@ sequenceDiagram
     John-->>Alice: Great!
     John->>Bob: How about you?
     Bob-->>John: Jolly good!
+";
+    string Def3 = @"
+pie title Pets adopted by volunteers
+    ""Dogs"" : 386
+    ""Cats"" : 85
+    ""Rats"" : 15
+
 ";
 }

@@ -18,12 +18,25 @@ Blazorade Mermaid will take care of the rest for you.
 
 ## Version Highlights
 
-## v1.0.0
+### v1.1.1
+
+- Fixed a bug that caused diagrams with inline themese not to render when the diagram with inline theme was the first diagram to render after the page load. [PR #7](https://github.com/Blazorade/Blazorade-Mermaid/pull/7)
+
+### v1.1.0
+
+- Added the `MermaidRender` component which can be added on a page to render Mermaid definitions published mixed with other HTML content. Read more about how to use this component on the [wiki](https://github.com/Blazorade/Blazorade-Mermaid/wiki/Sample2).
+
+### v1.0.1
+
+- Changed package icon.
+- Added XML documentation file to the package to enable inline documentation with intellisense.
+
+### v1.0.0
 
 The first stable version of Blazorade Mermaid.
 - Changed the `Code` parameter on the `MermaidDiagram` component to `Definition` to better match the terminology on the [Mermaid website](https://mermaid.js.org/intro/).
 
-## v1.0.0-beta.3
+### v1.0.0-beta.3
 
 - Prefixed the generated ID for the `MermaidDiagram` component with the character `m` to ensure that it never starts with a digit. `id` attributes for HTML elements **MUST** start with a letter, not a digit.
 

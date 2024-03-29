@@ -19,4 +19,12 @@
     <ProjectReference Include="..\Blazorade.Mermaid\Blazorade.Mermaid.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <UpToDateCheckInput Remove="RenderOnlyDiagrams.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="RenderOnlyDiagrams.razor" />
+  </ItemGroup>
+
 </Project>

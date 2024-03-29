@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Blazorade.Mermaid.Model;
+using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
@@ -27,29 +28,14 @@ namespace Blazorade.Mermaid.Components
         /// </remarks>
         [Parameter]
         public string Definition { get; set; } = @"
-sequenceDiagram
+---
+title: Diagram definition not specified
+---
+flowchart TB
 
-participant A as Alice
-participant B as Bob
+s1[Click here to read more on the Blazorade-Mermaid Wiki]
 
-A ->> B: Hello Bob, how are you ?
-B ->> A: Fine, thank you. And you?
-
-create participant C as Carl
-
-A ->> C: Hi Carl!
-
-create actor D as Donald
-
-C ->> D: Hi!
-
-destroy C
-
-A -x C: We are too many
-
-destroy B
-
-B ->> A: I agree
+click s1 ""https://github.com/Blazorade/Blazorade-Mermaid/wiki"" ""Open Blazorade-Mermaid Wiki"" _blank
 ";
 
         /// <summary>
@@ -61,28 +47,34 @@ B ->> A: I agree
         [Parameter]
         public string? Id { get; set; }
 
-        [Inject]
-        private IJSRuntime JSRuntime { get; set; } = null!;
+        /// <summary>
+        /// The callback method that will be called by Mermaid JS when a diagram element is clicked.
+        /// </summary>
+        [JSInvokable]
+        public Task OnElementClickCallbackAsync(ElementClickCallbackArgs args)
+        {
+            // TODO: Still lacks implementations.
+            return Task.CompletedTask;
+        }
+
 
         /// <inheritdoc/>
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
-            var jsModule = await this.GetBlazoradeMermaidModuleAsync();
-            await jsModule.InvokeVoidAsync("run", this.Id, this.Definition);
+            await this.UpdateDiagramAsync();
         }
 
         /// <inheritdoc/>
         protected override void OnParametersSet()
         {
+            if(null != this.ChildContent)
+            {
+                this.Definition = string.Empty;
+            }
+
             this.AddClasses("mermaid");
             this.SetIdIfEmpty();
             base.OnParametersSet();
-        }
-
-        private IJSObjectReference _BlazoradeMermaidModule = null!;
-        private async ValueTask<IJSObjectReference> GetBlazoradeMermaidModuleAsync()
-        {
-            return _BlazoradeMermaidModule ??= await this.JSRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/Blazorade.Mermaid/js/blazoradeMermaid.js");
         }
 
         private void SetIdIfEmpty(string? id = null)
@@ -96,5 +88,20 @@ B ->> A: I agree
                 this.Attributes.Add("id", id);
             }
         }
+
+        private ValueTask RegisterClickCallbacksAsync()
+        {
+            // TODO: Still lacks implementations.
+            return ValueTask.CompletedTask;
+        }
+
+        private async ValueTask UpdateDiagramAsync()
+        {
+            var jsModule = await this.GetBlazoradeMermaidModuleAsync();
+            await jsModule.InvokeVoidAsync("run", this.Id, this.Definition);
+
+            await this.RegisterClickCallbacksAsync();
+        }
+
     }
 }
