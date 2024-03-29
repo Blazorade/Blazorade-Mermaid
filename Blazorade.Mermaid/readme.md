@@ -18,6 +18,10 @@ Blazorade Mermaid will take care of the rest for you.
 
 ## Version Highlights
 
+### v1.1.1
+
+- Fixed a bug that caused diagrams with inline themese not to render when the diagram with inline theme was the first diagram to render after the page load. [PR #7](https://github.com/Blazorade/Blazorade-Mermaid/pull/7)
+
 ### v1.1.0
 
 - Added the `MermaidRender` component which can be added on a page to render Mermaid definitions published mixed with other HTML content. Read more about how to use this component on the [wiki](https://github.com/Blazorade/Blazorade-Mermaid/wiki/Sample2).
