@@ -11,7 +11,7 @@ export function run(id, definition) {
 }
 
 var renderCount = 0;
-export function renderOnly(selector) {
+export async function renderOnly(selector) {
     //console.log("Rendering diagrams on elements with selector", selector, renderCount);
 
     if (renderCount == 0) {
@@ -19,7 +19,7 @@ export function renderOnly(selector) {
         prerenderDiagram();
     }
 
-    mermaid.run({ querySelector: selector });
+    await mermaid.run({ querySelector: selector });
     renderCount++;
 }
 
