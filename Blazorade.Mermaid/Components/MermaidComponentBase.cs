@@ -10,8 +10,18 @@ using System.Threading.Tasks;
 
 namespace Blazorade.Mermaid.Components
 {
+    /// <summary>
+    /// Represents configuration properties of the Mermaid component.
+    /// </summary>
     public sealed record MermaidConfiguration
     {
+        /// <summary>
+        /// The security level to use for the diagram.
+        /// </summary>
+        /// <remarks>
+        /// The default value is <c>strict</c>.
+        /// See https://mermaid.js.org/config/schema-docs/config.html#securitylevel for more information.
+        /// </remarks>
         [JsonPropertyName("securityLevel")]
         public string? SecurityLevel { get; init; }
     }
@@ -22,6 +32,9 @@ namespace Blazorade.Mermaid.Components
     public abstract class MermaidComponentBase : BlazoradeComponentBase
     {
 
+        /// <summary>
+        /// The (optional) configuration for this Mermaid component.
+        /// </summary>
         [Parameter]
         public MermaidConfiguration? Configuration { get; set; }
 
