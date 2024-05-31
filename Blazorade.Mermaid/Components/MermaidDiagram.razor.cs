@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Blazorade.Mermaid.Components
@@ -98,10 +99,9 @@ click s1 ""https://github.com/Blazorade/Blazorade-Mermaid/wiki"" ""Open Blazorad
         private async ValueTask UpdateDiagramAsync()
         {
             var jsModule = await this.GetBlazoradeMermaidModuleAsync();
-            await jsModule.InvokeVoidAsync("run", this.Id, this.Definition);
+            await jsModule.InvokeVoidAsync("run", this.Id, this.Definition, this.Configuration);
 
             await this.RegisterClickCallbacksAsync();
         }
-
     }
 }

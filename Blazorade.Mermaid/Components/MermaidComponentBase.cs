@@ -5,15 +5,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Blazorade.Mermaid.Components
 {
+    public sealed record MermaidConfiguration
+    {
+        [JsonPropertyName("securityLevel")]
+        public string? SecurityLevel { get; init; }
+    }
+
     /// <summary>
     /// A base class for components with Mermaid functionality.
     /// </summary>
     public abstract class MermaidComponentBase : BlazoradeComponentBase
     {
+
+        [Parameter]
+        public MermaidConfiguration? Configuration { get; set; }
 
         /// <summary>
         /// Injected JavaScript Runtime implementation.
