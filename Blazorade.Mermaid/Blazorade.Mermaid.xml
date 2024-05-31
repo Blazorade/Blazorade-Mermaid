@@ -4,9 +4,28 @@
         <name>Blazorade.Mermaid</name>
     </assembly>
     <members>
+        <member name="T:Blazorade.Mermaid.Components.MermaidConfiguration">
+            <summary>
+            Represents configuration properties of the Mermaid component.
+            </summary>
+        </member>
+        <member name="P:Blazorade.Mermaid.Components.MermaidConfiguration.SecurityLevel">
+            <summary>
+            The security level to use for the diagram.
+            </summary>
+            <remarks>
+            The default value is <c>strict</c>.
+            See https://mermaid.js.org/config/schema-docs/config.html#securitylevel for more information.
+            </remarks>
+        </member>
         <member name="T:Blazorade.Mermaid.Components.MermaidComponentBase">
             <summary>
             A base class for components with Mermaid functionality.
+            </summary>
+        </member>
+        <member name="P:Blazorade.Mermaid.Components.MermaidComponentBase.Configuration">
+            <summary>
+            The (optional) configuration for this Mermaid component.
             </summary>
         </member>
         <member name="P:Blazorade.Mermaid.Components.MermaidComponentBase.JSRuntime">
