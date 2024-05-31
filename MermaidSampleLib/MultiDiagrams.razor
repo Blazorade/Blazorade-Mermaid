@@ -4,7 +4,8 @@
 <MermaidDiagram Definition="@this.Def1" />
 
 <h4>Sequence Diagram</h4>
-<MermaidDiagram Definition="@this.Def2" />
+<MermaidDiagram Configuration="@(new MermaidConfiguration { SecurityLevel = "loose" })"
+                Definition="@this.Def2" />
 
 <h4>Default Diagram</h4>
 <MermaidDiagram></MermaidDiagram>
@@ -40,6 +41,8 @@ sequenceDiagram
   }
 }%%
     autonumber
+    participant Alice
+    link Alice: Mermaid @ https://mermaid.js.org/
     Alice->>John: Hello John, how are you?
     loop Healthcheck
         John->>John: Fight against hypochondria
