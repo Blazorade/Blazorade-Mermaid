@@ -1,6 +1,6 @@
 ﻿@this.HtmlContent
 
-<MermaidRender Selector="pre.mermaid" />
+<MermaidRender Selector="pre.mermaid" SecurityLevel="SecurityLevel.Loose" />
 
 @code {
 
@@ -40,7 +40,7 @@ flowchart TB
 <pre class=""mermaid"">
 sequenceDiagram
     autonumber
-    Alice->>John: Hello John, how are you?
+    Alice->>John: <b>Hello John</b>, how are you?
     loop Healthcheck
         John->>John: Fight against hypochondria
     end

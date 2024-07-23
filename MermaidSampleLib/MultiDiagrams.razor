@@ -6,8 +6,8 @@
 <h4>Flowchart With Inline Theme</h4>
 <MermaidDiagram Definition="@this.Def1_themed" />
 
-<h4>Sequence Diagram</h4>
-<MermaidDiagram Definition="@this.Def2" />
+<h4>Sequence Diagram (Security Level: Loose)</h4>
+<MermaidDiagram SecurityLevel="SecurityLevel.Loose" Definition="@this.Def2" />
 
 <h4>Default Diagram</h4>
 <MermaidDiagram></MermaidDiagram>
@@ -73,6 +73,8 @@ sequenceDiagram
   }
 }%%
     autonumber
+    participant Alice
+    link Alice: Mermaid @ https://mermaid.js.org/
     Alice->>John: Hello John, how are you?
     loop Healthcheck
         John->>John: Fight against hypochondria

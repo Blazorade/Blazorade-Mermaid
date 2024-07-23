@@ -1,25 +1,29 @@
 ﻿
 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
 
-export function run(id, definition) {
-    //console.log(`Rendering diagram on element with ID '${id}'`, definition);
+export function run(id, definition, configuration) {
+    console.debug("run (id, definition, configuration)", id, definition, configuration);
     var elem = document.getElementById(id);
     elem.removeAttribute("data-processed");
 
     elem.innerHTML = definition;
-    renderOnly("#" + id);
+    renderOnly("#" + id, configuration);
 }
 
 var renderCount = 0;
-export function renderOnly(selector) {
-    //console.log("Rendering diagrams on elements with selector", selector, renderCount);
+export async function renderOnly(selector, configuration) {
+    console.debug("renderOnly(selector, configuration)", selector, configuration);
 
     if (renderCount == 0) {
         renderCount = 1;
         prerenderDiagram();
     }
 
-    mermaid.run({ querySelector: selector });
+    if (configuration) {
+        mermaid.initialize(configuration);
+    }
+
+    await mermaid.run({ querySelector: selector });
     renderCount++;
 }
 
