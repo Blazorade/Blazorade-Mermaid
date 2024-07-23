@@ -98,7 +98,7 @@ click s1 ""https://github.com/Blazorade/Blazorade-Mermaid/wiki"" ""Open Blazorad
         private async ValueTask UpdateDiagramAsync()
         {
             var jsModule = await this.GetBlazoradeMermaidModuleAsync();
-            await jsModule.InvokeVoidAsync("run", this.Id, this.Definition, this.Configuration);
+            await jsModule.InvokeVoidAsync("run", this.Id, this.Definition, this.GetConfig());
 
             await this.RegisterClickCallbacksAsync();
         }

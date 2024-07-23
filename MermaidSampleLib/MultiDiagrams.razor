@@ -3,9 +3,8 @@
 <h4>Flowchart</h4>
 <MermaidDiagram Definition="@this.Def1" />
 
-<h4>Sequence Diagram</h4>
-<MermaidDiagram Configuration="@(new MermaidConfiguration { SecurityLevel = "loose" })"
-                Definition="@this.Def2" />
+<h4>Sequence Diagram (Security Level: Loose)</h4>
+<MermaidDiagram SecurityLevel="SecurityLevel.Loose" Definition="@this.Def2" />
 
 <h4>Default Diagram</h4>
 <MermaidDiagram></MermaidDiagram>

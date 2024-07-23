@@ -2,7 +2,7 @@
 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
 
 export function run(id, definition, configuration) {
-    //console.log(`Rendering diagram on element with ID '${id}'`, definition);
+    console.debug("run (id, definition, configuration)", id, definition, configuration);
     var elem = document.getElementById(id);
     elem.removeAttribute("data-processed");
 
@@ -12,7 +12,7 @@ export function run(id, definition, configuration) {
 
 var renderCount = 0;
 export function renderOnly(selector, configuration) {
-    //console.log("Rendering diagrams on elements with selector", selector, renderCount);
+    console.debug("renderOnly(selector, configuration)", selector, configuration);
 
     if (renderCount == 0) {
         renderCount = 1;

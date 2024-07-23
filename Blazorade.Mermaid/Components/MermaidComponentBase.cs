@@ -10,21 +10,6 @@ using System.Threading.Tasks;
 
 namespace Blazorade.Mermaid.Components
 {
-    /// <summary>
-    /// Represents configuration properties of the Mermaid component.
-    /// </summary>
-    public sealed record MermaidConfiguration
-    {
-        /// <summary>
-        /// The security level to use for the diagram.
-        /// </summary>
-        /// <remarks>
-        /// The default value is <c>strict</c>.
-        /// See https://mermaid.js.org/config/schema-docs/config.html#securitylevel for more information.
-        /// </remarks>
-        [JsonPropertyName("securityLevel")]
-        public string? SecurityLevel { get; init; }
-    }
 
     /// <summary>
     /// A base class for components with Mermaid functionality.
@@ -33,11 +18,12 @@ namespace Blazorade.Mermaid.Components
     {
 
         /// <summary>
-        /// The (optional) configuration for this Mermaid component.
+        /// Level of trust for parsed diagram.
         /// </summary>
         [Parameter]
-        public MermaidConfiguration? Configuration { get; set; }
+        public SecurityLevel? SecurityLevel { get; set; }
 
+        
         /// <summary>
         /// Injected JavaScript Runtime implementation.
         /// </summary>
@@ -51,6 +37,21 @@ namespace Blazorade.Mermaid.Components
         protected async ValueTask<IJSObjectReference> GetBlazoradeMermaidModuleAsync()
         {
             return _BlazoradeMermaidModule ??= await this.JSRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/Blazorade.Mermaid/js/blazoradeMermaid.js");
+        }
+
+        /// <summary>
+        /// Returns a configuration object to send to Mermaid when rendering diagrams.
+        /// </summary>
+        protected Dictionary<string, object?> GetConfig()
+        {
+            var config = new Dictionary<string, object?>();
+
+            if(this.SecurityLevel.HasValue)
+            {
+                config["securityLevel"] = this.SecurityLevel?.ToString()?.ToLower();
+            }
+
+            return config;
         }
     }
 }

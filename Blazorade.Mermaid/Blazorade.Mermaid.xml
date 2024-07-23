@@ -4,28 +4,14 @@
         <name>Blazorade.Mermaid</name>
     </assembly>
     <members>
-        <member name="T:Blazorade.Mermaid.Components.MermaidConfiguration">
-            <summary>
-            Represents configuration properties of the Mermaid component.
-            </summary>
-        </member>
-        <member name="P:Blazorade.Mermaid.Components.MermaidConfiguration.SecurityLevel">
-            <summary>
-            The security level to use for the diagram.
-            </summary>
-            <remarks>
-            The default value is <c>strict</c>.
-            See https://mermaid.js.org/config/schema-docs/config.html#securitylevel for more information.
-            </remarks>
-        </member>
         <member name="T:Blazorade.Mermaid.Components.MermaidComponentBase">
             <summary>
             A base class for components with Mermaid functionality.
             </summary>
         </member>
-        <member name="P:Blazorade.Mermaid.Components.MermaidComponentBase.Configuration">
+        <member name="P:Blazorade.Mermaid.Components.MermaidComponentBase.SecurityLevel">
             <summary>
-            The (optional) configuration for this Mermaid component.
+            Level of trust for parsed diagram.
             </summary>
         </member>
         <member name="P:Blazorade.Mermaid.Components.MermaidComponentBase.JSRuntime">
@@ -36,6 +22,11 @@
         <member name="M:Blazorade.Mermaid.Components.MermaidComponentBase.GetBlazoradeMermaidModuleAsync">
             <summary>
             Returns a reference to the Blazorade Mermaid JavaScript file.
+            </summary>
+        </member>
+        <member name="M:Blazorade.Mermaid.Components.MermaidComponentBase.GetConfig">
+            <summary>
+            Returns a configuration object to send to Mermaid when rendering diagrams.
             </summary>
         </member>
         <member name="T:Blazorade.Mermaid.Components.MermaidDiagram">
@@ -103,6 +94,33 @@
         <member name="P:Blazorade.Mermaid.Model.ElementClickCallbackArgs.Id">
             <summary>
             The Mermaid ID of the element that was clicked.
+            </summary>
+        </member>
+        <member name="T:Blazorade.Mermaid.SecurityLevel">
+            <summary>
+            Defines different security levels for Mermaid diagrams.
+            </summary>
+        </member>
+        <member name="F:Blazorade.Mermaid.SecurityLevel.Strict">
+            <summary>
+            Default. HTML tags in the text are encoded and click functionality is disabled.
+            </summary>
+        </member>
+        <member name="F:Blazorade.Mermaid.SecurityLevel.Loose">
+            <summary>
+            HTML tags in text are allowed and click functionality is enabled.
+            </summary>
+        </member>
+        <member name="F:Blazorade.Mermaid.SecurityLevel.AntiScript">
+            <summary>
+            HTML tags in text are allowed (only script elements are removed), and click functionality is enabled.
+            </summary>
+        </member>
+        <member name="F:Blazorade.Mermaid.SecurityLevel.Sandbox">
+            <summary>
+            With this security level, all rendering takes place in a sandboxed iframe. This prevent any JavaScript
+            from running in the context. This may hinder interactive functionality of the diagram, like scripts,
+            popups in the sequence diagram, or links to other tabs or targets, etc.
             </summary>
         </member>
     </members>
