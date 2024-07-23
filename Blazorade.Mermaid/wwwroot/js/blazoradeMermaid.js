@@ -11,7 +11,7 @@ export function run(id, definition, configuration) {
 }
 
 var renderCount = 0;
-export function renderOnly(selector, configuration) {
+export async function renderOnly(selector, configuration) {
     console.debug("renderOnly(selector, configuration)", selector, configuration);
 
     if (renderCount == 0) {
@@ -23,7 +23,7 @@ export function renderOnly(selector, configuration) {
         mermaid.initialize(configuration);
     }
 
-    mermaid.run({ querySelector: selector });
+    await mermaid.run({ querySelector: selector });
     renderCount++;
 }
 
