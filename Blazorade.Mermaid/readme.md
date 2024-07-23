@@ -18,6 +18,11 @@ Blazorade Mermaid will take care of the rest for you.
 
 ## Version Highlights
 
+### v1.2.0
+
+- Async fix to `blazoradeMermaid.js`
+- Added configuration option for defining the `securityLevel` for the rendered Mermaid diagrams.
+
 ### v1.1.1
 
 - Fixed a bug that caused diagrams with inline themese not to render when the diagram with inline theme was the first diagram to render after the page load. [PR #7](https://github.com/Blazorade/Blazorade-Mermaid/pull/7)
