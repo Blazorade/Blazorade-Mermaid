@@ -4,6 +4,19 @@
         <name>Blazorade.Mermaid</name>
     </assembly>
     <members>
+        <member name="T:Blazorade.Mermaid.Components.HtmlRender">
+            <summary>
+            This component is used to render dynamically generated HTML content that potentially contains one or more Mermaid diagram definition.
+            </summary>
+        </member>
+        <member name="P:Blazorade.Mermaid.Components.HtmlRender.HtmlContent">
+            <summary>
+            The HTML content to render.
+            </summary>
+        </member>
+        <member name="M:Blazorade.Mermaid.Components.HtmlRender.OnParametersSet">
+            <inheritdoc/>
+        </member>
         <member name="T:Blazorade.Mermaid.Components.MermaidComponentBase">
             <summary>
             A base class for components with Mermaid functionality.

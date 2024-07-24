@@ -1,0 +1,38 @@
+﻿@page "/dynamic-content"
+@code {
+    string? htmlContent = null;
+    string htmlSource = @"
+<h1>Page title</h1>
+
+<p>
+This page is generated on-demand in order to try and reproduce a problem with Blazorade Mermaid.
+</p>
+<p>
+The Mermaid diagram below should be properly rendered.
+</p>
+<pre class=""mermaid"">
+pie title Pets adopted by volunteers
+    ""Dogs"" : 386
+    ""Cats"" : 85
+    ""Rats"" : 15
+</pre>
+";
+}
+<h3>Dynamic Content</h3>
+
+<button @onclick="this.ClickToRender">Click to render</button>
+<button @onclick="this.ClearContent">Clear content</button>
+
+<HtmlRender Selector=".mermaid" HtmlContent="@this.htmlContent" SecurityLevel="SecurityLevel.Loose" />
+
+@code {
+    private void ClickToRender()
+    {
+        this.htmlContent = htmlSource;
+    }
+
+    private void ClearContent()
+    {
+        this.htmlContent = null;
+    }
+}
