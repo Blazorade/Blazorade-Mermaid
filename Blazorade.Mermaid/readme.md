@@ -20,7 +20,7 @@ Blazorade Mermaid will take care of the rest for you.
 
 ### v1.3.0
 
-- Added new HtmlRender component for use with dynamically generated and changing HTML content that potentially contains Mermaid diagram definitions.
+- Added new `HtmlRender` component for use with dynamically generated and changing HTML content that potentially contains Mermaid diagram definitions.
 
 ### v1.2.0
 
