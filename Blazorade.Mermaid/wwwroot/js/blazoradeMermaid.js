@@ -1,12 +1,26 @@
 ﻿
 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
 
+export function getInnerText(id) {
+    console.debug("getInnerText(id)", id);
+
+    var elem = document.getElementById(id);
+    var innerText = elem ? elem.innerHTML : undefined;
+
+    console.debug("innerText", innerText);
+
+    return innerText;
+}
+
 export function run(id, definition, configuration) {
     console.debug("run (id, definition, configuration)", id, definition, configuration);
     var elem = document.getElementById(id);
     elem.removeAttribute("data-processed");
 
-    elem.innerHTML = definition;
+    if (definition) {
+        elem.innerHTML = definition;
+    }
+
     renderOnly("#" + id, configuration);
 }
 
@@ -34,6 +48,8 @@ export async function renderOnly(selector, configuration) {
  * themes. That problem does not occur after the initial diagram has been rendered.
  */
 function prerenderDiagram() {
+    console.debug("prerenderDiagram()");
+
     var body = document.getElementsByTagName("body");
     if (body.length > 0) {
         var diagElement = document.createElement("pre");

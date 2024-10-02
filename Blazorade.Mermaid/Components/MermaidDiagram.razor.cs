@@ -20,14 +20,7 @@ namespace Blazorade.Mermaid.Components
     /// </remarks>
     partial class MermaidDiagram
     {
-        /// <summary>
-        /// The Mermaid definition to render as a diagram.
-        /// </summary>
-        /// <remarks>
-        /// Read more about Mermaid and diagrams on https://mermaid.js.org/intro/.
-        /// </remarks>
-        [Parameter]
-        public string Definition { get; set; } = @"
+        private const string DefaultDefinition = @"
 ---
 title: Diagram definition not specified
 ---
@@ -37,6 +30,15 @@ s1[Click here to read more on the Blazorade-Mermaid Wiki]
 
 click s1 ""https://github.com/Blazorade/Blazorade-Mermaid/wiki"" ""Open Blazorade-Mermaid Wiki"" _blank
 ";
+
+        /// <summary>
+        /// The Mermaid definition to render as a diagram.
+        /// </summary>
+        /// <remarks>
+        /// Read more about Mermaid and diagrams on https://mermaid.js.org/intro/.
+        /// </remarks>
+        [Parameter]
+        public string Definition { get; set; } = default!;
 
         /// <summary>
         /// The ID for the diagram.
@@ -67,11 +69,6 @@ click s1 ""https://github.com/Blazorade/Blazorade-Mermaid/wiki"" ""Open Blazorad
         /// <inheritdoc/>
         protected override void OnParametersSet()
         {
-            if(null != this.ChildContent)
-            {
-                this.Definition = string.Empty;
-            }
-
             this.AddClasses("mermaid");
             this.SetIdIfEmpty();
             base.OnParametersSet();
@@ -98,7 +95,22 @@ click s1 ""https://github.com/Blazorade/Blazorade-Mermaid/wiki"" ""Open Blazorad
         private async ValueTask UpdateDiagramAsync()
         {
             var jsModule = await this.GetBlazoradeMermaidModuleAsync();
-            await jsModule.InvokeVoidAsync("run", this.Id, this.Definition, this.GetConfig());
+
+            if (string.IsNullOrEmpty(this.Definition))
+            {
+                // If the definition parameter is not set, then we try to figure it out.
+                // We use the following order to get the definition.
+                // 1. Get the inner text of the current element if it exists
+                // 2. Use the default definition.
+
+                var dDef = await jsModule.InvokeAsync<string?>("getInnerText", this.Id);
+                this.Definition = dDef?.Length > 0 ? dDef : DefaultDefinition;
+            }
+
+            if(null == this.ChildContent && this.Definition?.Length > 0)
+            {
+                await jsModule.InvokeVoidAsync("run", this.Id, this.Definition, this.GetConfig());
+            }
 
             await this.RegisterClickCallbacksAsync();
         }

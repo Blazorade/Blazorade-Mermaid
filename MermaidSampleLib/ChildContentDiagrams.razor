@@ -1,0 +1,20 @@
+﻿@code {
+    string dDef = @"
+pie title Pets adopted by volunteers
+""Dogs"" : 386
+""Cats"" : 85
+""Rats"" : 15
+";
+}
+<h3>Child Content</h3>
+
+<h4>Static Inline Mermaid Definition</h4>
+<MermaidDiagram>
+@dDef
+</MermaidDiagram>
+
+@* 
+<h3>Reference Diagram</h3>
+<p>This is how the diagram above should look like.</p>
+<MermaidDiagram Definition="@this.dDef" />
+ *@

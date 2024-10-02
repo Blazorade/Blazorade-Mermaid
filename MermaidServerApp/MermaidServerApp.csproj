@@ -16,7 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\ChildContent.razor" />
     <_ContentIncludedByDefault Remove="Pages\RenderOnly.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\ChildContent.razor" />
   </ItemGroup>
 
 </Project>
