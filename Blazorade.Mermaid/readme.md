@@ -18,6 +18,10 @@ Blazorade Mermaid will take care of the rest for you.
 
 ## Version Highlights
 
+### v2.0.0
+
+- Updated reference to `Blazorade.Core` to version 4.0.0, which targets .NET 8. The previous version of `Blazorade.Core` targeted .NET 6.
+
 ### v1.3.0
 
 - Added new `HtmlRender` component for use with dynamically generated and changing HTML content that potentially contains Mermaid diagram definitions.
