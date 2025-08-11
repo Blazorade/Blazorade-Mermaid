@@ -1,5 +1,5 @@
 ﻿
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
 
 export function run(id, definition, configuration) {
     console.debug("run (id, definition, configuration)", id, definition, configuration);
