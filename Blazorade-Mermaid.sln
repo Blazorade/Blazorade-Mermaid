@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MermaidWasmApp", "MermaidWa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MermaidSampleLib", "MermaidSampleLib\MermaidSampleLib.csproj", "{D947CE98-B041-48C8-B227-E2C24674BEC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MermaidWasmNET9App", "MermaidWasmNET9App\MermaidWasmNET9App.csproj", "{F7533FE3-14AC-45BE-935C-92182EC056BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{D947CE98-B041-48C8-B227-E2C24674BEC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D947CE98-B041-48C8-B227-E2C24674BEC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D947CE98-B041-48C8-B227-E2C24674BEC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7533FE3-14AC-45BE-935C-92182EC056BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7533FE3-14AC-45BE-935C-92182EC056BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7533FE3-14AC-45BE-935C-92182EC056BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7533FE3-14AC-45BE-935C-92182EC056BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 		{88E27090-174C-4DC4-998C-0769BE36C375} = {492DE9A8-B31D-4B40-999A-74D9F011C795}
 		{EF60F3E5-93E0-4EEE-B7C5-C0D7B2F1AF34} = {492DE9A8-B31D-4B40-999A-74D9F011C795}
 		{D947CE98-B041-48C8-B227-E2C24674BEC8} = {492DE9A8-B31D-4B40-999A-74D9F011C795}
+		{F7533FE3-14AC-45BE-935C-92182EC056BA} = {492DE9A8-B31D-4B40-999A-74D9F011C795}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4028A52F-0BED-46ED-9292-FC02CC7AA810}
