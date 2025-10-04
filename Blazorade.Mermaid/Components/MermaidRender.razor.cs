@@ -31,8 +31,7 @@ namespace Blazorade.Mermaid.Components
         /// <inheritdoc/>
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            var jsModule = await this.GetBlazoradeMermaidModuleAsync();
-            await jsModule.InvokeVoidAsync("renderOnly", this.Selector, this.GetConfig());
+            await this.InvokeRenderOnlyAsync(this.Selector);
         }
     }
 }
