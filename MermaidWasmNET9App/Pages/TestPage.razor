@@ -1,0 +1,18 @@
+﻿@page "/testpage"
+
+@using Blazorade.Mermaid.Components
+
+<h1>Mermaid Diagram Example</h1>
+
+<MermaidDiagram Definition="@flowchartDefinition" />
+
+@code {
+    private string flowchartDefinition = @"
+            graph TD
+                A[Start] --> B{Is it Blazorade Mermaid?};
+                B -- Yes --> C[Render Diagram];
+                B -- No --> D[Learn about Blazorade Mermaid];
+                C --> E[Enjoy Diagrams!];
+                D --> C;
+        ";
+}

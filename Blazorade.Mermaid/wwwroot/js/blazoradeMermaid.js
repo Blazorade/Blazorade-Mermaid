@@ -1,29 +1,48 @@
-﻿
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+﻿import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
 
-export function run(id, definition, configuration) {
+export async function run(id, definition, configuration) {
     console.debug("run (id, definition, configuration)", id, definition, configuration);
-    var elem = document.getElementById(id);
-    elem.removeAttribute("data-processed");
+    const elem = document.getElementById(id);
+    if (!elem) {
+        console.warn("Mermaid: no element with id:", id);
+        return;
+    }
 
+    // Reset old render flags from previous versions/renders
+    elem.removeAttribute("data-processed");
     elem.innerHTML = definition;
-    renderOnly("#" + id, configuration);
+
+    // Render just this element
+    await renderOnly(elem, configuration);
 }
 
-var renderCount = 0;
-export async function renderOnly(selector, configuration) {
-    console.debug("renderOnly(selector, configuration)", selector, configuration);
+let renderCount = 0;
 
-    if (renderCount == 0) {
-        renderCount = 1;
-        prerenderDiagram();
+export async function renderOnly(target, configuration) {
+    console.debug("renderOnly(target, configuration)", target, configuration);
+
+    if (renderCount === 0) {
+        renderCount = 1;            // set BEFORE prerender to avoid recursion
+        await prerenderDiagram();   // ← await the warm-up render
     }
 
     if (configuration) {
         mermaid.initialize(configuration);
     }
 
-    await mermaid.run({ querySelector: selector });
+    // Accept a selector string or a Node; pass explicit nodes to Mermaid
+    let nodes;
+    if (typeof target === "string") {
+        nodes = Array.from(document.querySelectorAll(target));
+    } else if (target instanceof Element) {
+        nodes = [target];
+    } else {
+        nodes = [];
+    }
+
+    if (nodes.length === 0) return;
+
+    await mermaid.run({ nodes });
     renderCount++;
 }
 
@@ -32,18 +51,22 @@ export async function renderOnly(selector, configuration) {
  * flow chart diagram with no themes. Once the diagram has been rendered, it is removed from the DOM.
  * This is to work around a problem that occurs on initial rendering of diagrams that include inline 
  * themes. That problem does not occur after the initial diagram has been rendered.
+ * 
+ * Warm up the renderer once, then remove the temp element AFTER the async render completes.
  */
-function prerenderDiagram() {
-    var body = document.getElementsByTagName("body");
-    if (body.length > 0) {
-        var diagElement = document.createElement("pre");
-        var dt = new Date();
-        var id = "blzrd-" + dt.getFullYear() + dt.getMonth() + dt.getDate() + dt.getHours() + dt.getMinutes() + dt.getSeconds() + dt.getMilliseconds();
-        diagElement.setAttribute("id", id);
-        body.item(0).appendChild(diagElement);
+async function prerenderDiagram() {
+    const body = document.body;
+    if (!body) return;
 
-        run(id, "flowchart TB\n    a-->b");
+    const dt = new Date();
+    const id = `blzrd-${dt.getFullYear()}${dt.getMonth()}${dt.getDate()}${dt.getHours()}${dt.getMinutes()}${dt.getSeconds()}${dt.getMilliseconds()}`;
 
-        body.item(0).removeChild(diagElement);
-    }
+    const diagElement = document.createElement("pre");
+    diagElement.id = id;
+    body.appendChild(diagElement);
+
+    // IMPORTANT: await the render before removing the node
+    await run(id, "flowchart TB\na-->b");
+
+    diagElement.remove();
 }
