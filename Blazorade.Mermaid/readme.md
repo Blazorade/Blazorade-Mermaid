@@ -18,6 +18,10 @@ Blazorade Mermaid will take care of the rest for you.
 
 ## Version Highlights
 
+### v2.0.3
+
+- Pinned the Mermaid JavaScript dependency to version 11.17.0 for predictable package behavior.
+
 ### v2.0.2
 
 - Fixed the JavaScript module to use async/await on all functions defined in the module to fix a promise error.

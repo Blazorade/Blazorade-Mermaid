@@ -1,4 +1,4 @@
-﻿import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+﻿import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.17.0/dist/mermaid.esm.min.mjs";
 
 export async function run(id, definition, configuration) {
     console.debug("run (id, definition, configuration)", id, definition, configuration);
